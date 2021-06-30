@@ -19,13 +19,13 @@ router.get("/all", (req, res) => {
 });
 // http method PUT define Update in CRUD
 router.put("/update/:id", (req, res) => {
-  User.findOneAndUpdate(req.params.id, req.body)
+  User.findByIdAndUpdate(req.params.id, req.body)
     .then(() => res.send("user updated"))
     .catch((err) => res.status(401).json(err.message));
 });
 // http method DELETE define Delete in CRUD
 router.delete("/delete/:id", (req, res) => {
-  User.findOneAndDelete(req.params.id)
+  User.findByIdAndDelete(req.params.id)
     .then(() => res.send("user deleted"))
     .catch((err) => res.status(401).json(err.message));
 });
